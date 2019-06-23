@@ -1,9 +1,9 @@
 import * as types from '../constants/modal'
 
-export const showModal = (payload) => {
+export const showModal = (data) => {
   return {
     type: types.OPEN_MODAL,
-    payload: payload
+    payload: data
   }
 }
 

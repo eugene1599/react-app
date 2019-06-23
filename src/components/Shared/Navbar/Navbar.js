@@ -1,5 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { signOutAction } from '../../../actions/redux-token-auth'
 
 function Navbar() {
   return (
@@ -19,10 +20,12 @@ function Navbar() {
           <li className="nav-item">
             <NavLink to="/customers" className="nav-link">Customers</NavLink>
           </li>
+          <li className="nav-item">
+            <NavLink to="/drivers" className="nav-link">Drivers</NavLink>
+          </li>
         </ul>
         <form className="form-inline mt-2 mt-md-0">
-          <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" />
-          <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          <button className="btn btn-outline-success my-2 my-sm-0" onClick={() => signOutAction() }>Log out</button>
         </form>
       </div>
     </nav>

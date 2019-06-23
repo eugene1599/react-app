@@ -1,4 +1,4 @@
-import * as types from '../constants/car'
+import * as types from '../constants/driver'
 
 const initialState = {
   items: []
@@ -6,28 +6,28 @@ const initialState = {
 
 export default (state = initialState, {type, payload}) => {
   switch (type){
-    case types.SET_CARS:
+    case types.SET_DRIVERS:
       return {
         ...state,
         items: payload
       }
-    case types.ADD_CAR:
+    case types.ADD_DRIVER:
       return {
         ...state,
         items: [...state.items, payload]
       }
-    case types.UPDATE_CAR:
+    case types.UPDATE_DRIVER:
       {
         let index = state.items.findIndex((item) => { return item.id === payload.id })
-        let newItems = [...state.items]
-        newItems[index] = payload
+        let items = [...state.items]
+        items[index] = payload
 
         return {
           ...state,
-          items: newItems
+          items: items
         }
       }
-    case types.DELETE_CAR:
+    case types.DELETE_DRIVER:
       return {
         ...state,
         items: state.items.filter(item => item.id !== payload)

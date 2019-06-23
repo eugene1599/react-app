@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import * as actions from '../../../actions/modal'
 
 class ModalWindowContainer extends Component {
-
   render () {
     return (
       <ModalWindow {...this.props} />
@@ -28,5 +27,3 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ModalWindowContainer)
-
-

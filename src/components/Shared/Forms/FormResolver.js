@@ -1,19 +1,27 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import CarForm from '../../Cars/forms'
+import CustomerForm from '../../Customers/forms'
+import DriverForm from '../../Drivers/forms'
 import resourceFinder from '../../../helpers/resourceFinder'
 
 class FormResolver extends Component {
   render () {
-    return(
-      <CarForm initialValues={this.props.initialValues} />
-    )
+    const { modal } = this.props;
+    const components = {
+      cars: CarForm,
+      customers: CustomerForm,
+      drivers: DriverForm
+    }
+    const FormName = components[modal.resource.name || 'cars'];
+ 
+    return <FormName initialValues={this.props.initialValues} />
   }
 }
 
 const mapStateToProps = (state) => {
   return {
-    formName: state.modal.formName,
+    modal: state.modal,
     initialValues: resourceFinder(state, state.modal.resource)
   }
 }

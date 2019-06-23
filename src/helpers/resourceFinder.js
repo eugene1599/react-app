@@ -1,6 +1,6 @@
 
 export default (state, resource) => {
   if(resource && resource.id){
-    return state[resource.name][resource.name].filter(res => { return res.id === resource.id})[0]
+    return state[resource.name]['items'].filter(res => { return res.id === resource.id})[0]
   }
 }

@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import Cars from './Cars'
-import * as actions from '../../actions/cars'
+import Customers from './Customers'
+import * as actions from '../../actions/customers'
 import MainLayout from '../MainLayout'
 
-class CarsContainer extends Component {
+class CustomersContainer extends Component {
   componentDidMount() {
     this.props.fetchAllItems();
   }
@@ -12,7 +12,7 @@ class CarsContainer extends Component {
   render () {
     return(
       <MainLayout>
-        <Cars {...this.props} />
+        <Customers {...this.props} />
       </MainLayout>
     )
   }
@@ -20,7 +20,7 @@ class CarsContainer extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    cars: state.cars.items
+    customers: state.customers.items
   }
 }
 
@@ -31,4 +31,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CarsContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(CustomersContainer)

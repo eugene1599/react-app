@@ -38,9 +38,9 @@ class CarForm extends Component {
 const mapDispatchToProps = dispatch => ({
   onSubmit: values => {
     if(values.id) {
-      dispatch(actions.updateCar(values))
+      dispatch(actions.updateItem(values))
     } else {
-      dispatch(actions.createCar(values))
+      dispatch(actions.createItem(values))
     }
   }
 })
