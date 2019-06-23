@@ -1,7 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { Router } from 'react-router-dom';
 import Routes from '../routes'
 import ReduxToastr from 'react-redux-toastr'
+import history from '../utils/history'
+
+import ModalWindow from './Shared/ModalWindow/container'
 
 import $ from 'jquery'
 import Popper from 'popper.js'
@@ -11,13 +14,11 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import '../assets/styles/App.css'
 import 'react-redux-toastr/lib/css/react-redux-toastr.min.css'
 
-import Navbar from './Shared/Navbar'
-import ModalWindow from './Shared/ModalWindow/container'
 
-function App() {
+
+function App(propr) {
   return (
-    <Router>
-      <Navbar />
+    <Router history={history}>
       <ModalWindow />
       <ReduxToastr
         timeOut={4000}
@@ -26,9 +27,7 @@ function App() {
         transitionOut="fadeOut"
         preventDuplicates
         closeOnToastrClick />
-      <main role="main" className="container" style={{ marginTop: '100px'}}>
-        <Routes />
-      </main>
+      <Routes />
     </Router>
   )
 }
