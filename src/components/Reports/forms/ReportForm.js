@@ -54,7 +54,7 @@ const mapStateToProps = (state) => {
       }
     }
   }
-  // debugger;
+
   return {
     ...form,
     race_id: state.modal.resource.race_id,
@@ -63,7 +63,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => ({
   onSubmit: values => {
-    // debugger;
     if(values.id) {
       dispatch(actions.updateItem(values.race_id, values))
     } else {
