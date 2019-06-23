@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { modal } from '../../helpers'
+import { Link } from 'react-router-dom'
 
 class Races extends Component {
   showList() {
@@ -14,6 +15,7 @@ class Races extends Component {
         <td>{(new Date(item.end_date)).toLocaleString()}</td>
         <td>{item.race_price}</td>
         <td>
+          <Link to={"/races/" + item.id + "/reports"} className="btn btn-light btn-sm">reports</Link>
           <button onClick={() => modal.showModal({modalTitle: 'Edit', resource: { name: 'races', id: item.id }})}>edit</button>
           <button onClick={() => this.props.deleteItem(item.id)}>delete</button>
         </td>

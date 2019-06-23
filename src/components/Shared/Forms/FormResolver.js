@@ -4,6 +4,7 @@ import CarForm from '../../Cars/forms'
 import CustomerForm from '../../Customers/forms'
 import DriverForm from '../../Drivers/forms'
 import RaceForm from '../../Races/forms'
+import ReportForm from '../../Reports/forms'
 import resourceFinder from '../../../helpers/resourceFinder'
 
 class FormResolver extends Component {
@@ -13,7 +14,8 @@ class FormResolver extends Component {
       cars: CarForm,
       customers: CustomerForm,
       drivers: DriverForm,
-      races: RaceForm
+      races: RaceForm,
+      reports: ReportForm
     }
     const FormName = components[modal.resource.name || 'cars'];
  
