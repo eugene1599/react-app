@@ -9,6 +9,7 @@ import Home from './components/Home';
 import Cars from './components/Cars';
 import Customers from './components/Customers';
 import Drivers from './components/Drivers';
+import Races from './components/Races';
 
 function Routes() {
   return (
@@ -17,6 +18,7 @@ function Routes() {
       <Route path="/cars" component={requireSignIn(Cars)} />
       <Route path="/customers" component={requireSignIn(Customers)} />
       <Route path="/drivers" component={requireSignIn(Drivers)} />
+      <Route path="/races" component={requireSignIn(Races)} />
     
       <Route path="/login" component={SignInPage} />
       <Route path="/register" component={SignUpPage} />

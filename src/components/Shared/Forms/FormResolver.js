@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import CarForm from '../../Cars/forms'
 import CustomerForm from '../../Customers/forms'
 import DriverForm from '../../Drivers/forms'
+import RaceForm from '../../Races/forms'
 import resourceFinder from '../../../helpers/resourceFinder'
 
 class FormResolver extends Component {
@@ -11,7 +12,8 @@ class FormResolver extends Component {
     const components = {
       cars: CarForm,
       customers: CustomerForm,
-      drivers: DriverForm
+      drivers: DriverForm,
+      races: RaceForm
     }
     const FormName = components[modal.resource.name || 'cars'];
  

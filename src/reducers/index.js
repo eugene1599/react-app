@@ -2,6 +2,7 @@ import { combineReducers } from 'redux'
 import CarsReducers from './car'
 import CustomersReducers from './customer'
 import DriversReducers from './driver'
+import RacesReducers from './race'
 import ModalReducers from './modal'
 import { reducer as form } from "redux-form";
 import { reducer as toastrReducer } from 'react-redux-toastr'
@@ -11,6 +12,7 @@ const allReducers = combineReducers({
   cars: CarsReducers,
   customers: CustomersReducers,
   drivers: DriversReducers,
+  races: RacesReducers,
   modal: ModalReducers,
   form: form,
   toastr: toastrReducer,

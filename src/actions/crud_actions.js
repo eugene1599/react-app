@@ -14,7 +14,7 @@ class CrudActions {
 
   fetchAllItems = () => {
     return dispatch => {
-      axios.get(`http://127.0.0.1:3001/api/v1${this.RESOURCE_PATH}`)
+      axios.get(`http://127.0.0.1:3001/api/v1${this.RESOURCE_PATH}.json`)
         .then(res => {
           dispatch(this.fetchAllItemsSuccess(res.data))
         });
@@ -29,7 +29,16 @@ class CrudActions {
           modal.closeModal();
           toastr.success('Success', 'Item was created successfully')
         }).catch(error => {
-          throw(error);
+          let message = 'Error';
+          try {
+            let fieldName = Object.keys(error.response.data)[0];
+            let errorMessage = error.response.data[fieldName][0]; 
+            
+            message = fieldName + " - " + errorMessage;
+          } catch(e) {
+            throw(error);
+          }
+          toastr.error('Error', message)
         }); 
     }
   }
@@ -42,7 +51,16 @@ class CrudActions {
           modal.closeModal();
           toastr.success('Success', 'Updated')
         }).catch(error => {
-          throw(error);
+          let message = 'Error';
+          try {
+            let fieldName = Object.keys(error.response.data)[0];
+            let errorMessage = error.response.data[fieldName][0]; 
+            
+            message = fieldName + " - " + errorMessage;
+          } catch(e) {
+            throw(error);
+          }
+          toastr.error('Error', message)
         }); 
     }
   }

@@ -23,6 +23,9 @@ function Navbar() {
           <li className="nav-item">
             <NavLink to="/drivers" className="nav-link">Drivers</NavLink>
           </li>
+          <li className="nav-item">
+            <NavLink to="/races" className="nav-link">Races</NavLink>
+          </li>
         </ul>
         <form className="form-inline mt-2 mt-md-0">
           <button className="btn btn-outline-success my-2 my-sm-0" onClick={() => signOutAction() }>Log out</button>
