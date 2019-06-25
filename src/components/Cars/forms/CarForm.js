@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import { Field, reduxForm } from 'redux-form';
+import { Field, reduxForm } from 'redux-form'
 import * as actions from '../../../actions/cars'
 import { connect } from 'react-redux'
 
 class CarForm extends Component {
   render() {
-    const { handleSubmit } = this.props;
+    const { handleSubmit } = this.props
 
     return (
       <form onSubmit={handleSubmit}>
@@ -48,6 +48,6 @@ const mapDispatchToProps = dispatch => ({
 CarForm = reduxForm({
   form: 'car_form',
   enableReinitialize: true
-})(CarForm);
+})(CarForm)
 
 export default connect(null, mapDispatchToProps)(CarForm)

@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import { Field, reduxForm } from 'redux-form';
+import { Field, reduxForm } from 'redux-form'
 import * as actions from '../../../actions/reports'
 import { connect } from 'react-redux'
 
 class ReportForm extends Component {
   render() {
-    const { handleSubmit } = this.props;
+    const { handleSubmit } = this.props
     return (
       <form onSubmit={handleSubmit}>
         <div className="form-group">
@@ -46,7 +46,7 @@ class ReportForm extends Component {
 }
 
 const mapStateToProps = (state) => {
-  let form = {};
+  let form = {}
   if(state.form['report_form']){
     form = {
       initialValues: {
@@ -74,6 +74,6 @@ const mapDispatchToProps = dispatch => ({
 ReportForm = reduxForm({
   form: 'report_form',
   enableReinitialize: true,
-})(ReportForm);
+})(ReportForm)
 
 export default connect(mapStateToProps, mapDispatchToProps)(ReportForm)

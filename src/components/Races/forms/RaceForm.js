@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Field, reduxForm } from 'redux-form';
+import { Field, reduxForm } from 'redux-form'
 import * as actions from '../../../actions/races'
 import * as actionsCars from '../../../actions/cars'
 import * as actionsCustomers from '../../../actions/customers'
@@ -8,37 +8,37 @@ import { connect } from 'react-redux'
 
 class RaceForm extends Component {
   componentDidMount() {
-    this.props.fetchAllCars();
-    this.props.fetchAllCustomers();
-    this.props.fetchAllDrivers();
+    this.props.fetchAllCars()
+    this.props.fetchAllCustomers()
+    this.props.fetchAllDrivers()
   }
 
   carsOptions() {
     return this.props.cars.map(item =>
       <option value={item.id} key={item.id}>#{item.id} - {item.name}</option>
-    );
+    )
   }
 
   customersOptions() {
     return this.props.customers.map(item =>
       <option value={item.id} key={item.id}>#{item.id} - {item.first_name} {item.last_name}</option>
-    );
+    )
   }
 
   driversOptions() {
     return this.props.drivers.map(item =>
       <option value={item.id} key={item.id}>#{item.id} - {item.first_name} {item.last_name}</option>
-    );
+    )
   }
 
   render() {
-    const { handleSubmit } = this.props;
+    const { handleSubmit } = this.props
 
     return (
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Car</label>
-          
+
           <Field className="form-control" name="race[car_id]" component="select">
             <option />
             {this.carsOptions()}
@@ -46,7 +46,7 @@ class RaceForm extends Component {
         </div>
         <div className="form-group">
           <label>Drives</label>
-          
+
           <Field className="form-control" name="race[driver_ids]" type="select-multiple" component="select" multiple>
             <option />
             {this.driversOptions()}
@@ -59,7 +59,7 @@ class RaceForm extends Component {
             {this.customersOptions()}>
           </Field>
         </div>
-        
+
         <div className="form-group">
           <label>Cargo weight</label>
           <Field
@@ -128,6 +128,6 @@ const mapStateToProps = (state) => {
 RaceForm = reduxForm({
   form: 'race_form',
   enableReinitialize: true
-})(RaceForm);
+})(RaceForm)
 
 export default connect(mapStateToProps, mapDispatchToProps)(RaceForm)

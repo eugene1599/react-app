@@ -6,7 +6,7 @@ import MainLayout from '../MainLayout'
 
 class CustomersContainer extends Component {
   componentDidMount() {
-    this.props.fetchAllItems();
+    this.props.fetchAllItems()
   }
 
   render () {
@@ -27,6 +27,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {
   fetchAllItems,
   deleteItem
-};
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(CustomersContainer)

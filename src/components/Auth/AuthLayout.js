@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 function MainLayout(props) {
   return (
@@ -14,4 +14,4 @@ function MainLayout(props) {
   )
 }
 
-export default MainLayout;
+export default MainLayout

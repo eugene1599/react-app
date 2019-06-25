@@ -1,21 +1,20 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { signInUser } from '../../actions/redux-token-auth'
-import { Field, reduxForm } from 'redux-form';
+import { Field, reduxForm } from 'redux-form'
 import { toastr } from '../../helpers'
 import AuthLayout from './AuthLayout'
 import { Link } from 'react-router-dom'
-// import { refreshAxiosHeaders } from '../../utils/axios'
+
 
 class SignInPage extends Component {
   submitForm ({ email, password}) {
     const { signInUser } = this.props
-    signInUser({ email, password }) 
+    signInUser({ email, password })
       .then( () => {
-        // this.setState({ successRedirect: true })
         this.props.history.push('/')
         // refreshAxiosHeaders();
-        window.location.reload(); // i don't know how to fix this
+        window.location.reload() // i don't know how to fix this
         //when user logged in it stays unlogged (i think we need to update axios config dynamycally?)
         // toastr.success('Hello user!')
       })
@@ -23,7 +22,7 @@ class SignInPage extends Component {
   }
 
   render () {
-    const { handleSubmit } = this.props;
+    const { handleSubmit } = this.props
 
     return (
       <AuthLayout>
@@ -46,7 +45,7 @@ class SignInPage extends Component {
 
 SignInPage = reduxForm({
   form: 'sign_in_form'
-})(SignInPage);
+})(SignInPage)
 
 
 export default connect(null, { signInUser })(SignInPage)

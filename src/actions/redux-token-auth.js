@@ -1,8 +1,6 @@
 import { generateAuthActions } from 'redux-token-auth'
 import { authUrl } from '../constants/auth'
-import { toastr } from '../helpers'
-import history from '../utils/history'
-import store from '../store';
+import store from '../store'
 
 const config = {
   authUrl,

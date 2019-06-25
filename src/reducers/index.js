@@ -5,7 +5,7 @@ import DriversReducers from './driver'
 import RacesReducers from './race'
 import ReportsReducers from './report'
 import ModalReducers from './modal'
-import { reducer as form } from "redux-form";
+import { reducer as form } from "redux-form"
 import { reducer as toastrReducer } from 'react-redux-toastr'
 import { reduxTokenAuthReducer } from 'redux-token-auth'
 
@@ -21,4 +21,4 @@ const allReducers = combineReducers({
   reduxTokenAuth: reduxTokenAuthReducer
 })
 
-export default allReducers;
+export default allReducers

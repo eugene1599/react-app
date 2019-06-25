@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import CarForm from '../../Cars/forms'
 import CustomerForm from '../../Customers/forms'
@@ -9,7 +9,7 @@ import resourceFinder from '../../../helpers/resourceFinder'
 
 class FormResolver extends Component {
   render () {
-    const { modal } = this.props;
+    const { modal } = this.props
     const components = {
       cars: CarForm,
       customers: CustomerForm,
@@ -17,8 +17,8 @@ class FormResolver extends Component {
       races: RaceForm,
       reports: ReportForm
     }
-    const FormName = components[modal.resource.name || 'cars'];
- 
+    const FormName = components[modal.resource.name || 'cars']
+
     return <FormName initialValues={this.props.initialValues} />
   }
 }

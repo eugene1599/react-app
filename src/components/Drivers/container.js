@@ -6,7 +6,7 @@ import MainLayout from '../MainLayout'
 
 class DriversContainer extends Component {
   componentDidMount() {
-    this.props.fetchAllItems();
+    this.props.fetchAllItems()
   }
 
   render () {

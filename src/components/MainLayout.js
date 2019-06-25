@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import Navbar from './Shared/Navbar'
 
 function MainLayout(props) {
@@ -12,4 +12,4 @@ function MainLayout(props) {
   )
 }
 
-export default MainLayout;
+export default MainLayout

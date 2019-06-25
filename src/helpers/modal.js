@@ -6,8 +6,8 @@ export default (function helpers() {
     showModal: function(params) {
       store.dispatch(modalActions.showModal(params))
     },
-    closeModal: function(){ 
+    closeModal: function(){
       store.dispatch(modalActions.closeModal())
     }
   }
-}());
+}())

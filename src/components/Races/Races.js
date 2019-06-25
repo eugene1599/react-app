@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 class Races extends Component {
   showList() {
-    const { getCustomerFullNameById, customers } = this.props;
+    const { getCustomerFullNameById, customers } = this.props
 
     return this.props.races.map(item =>
       <tr key={item.id}>

@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import { Field, reduxForm } from 'redux-form';
+import { Field, reduxForm } from 'redux-form'
 import * as actions from '../../../actions/drivers'
 import { connect } from 'react-redux'
 
 class DriverForm extends Component {
   render() {
-    const { handleSubmit } = this.props;
+    const { handleSubmit } = this.props
 
     return (
       <form onSubmit={handleSubmit}>
@@ -57,6 +57,6 @@ const mapDispatchToProps = dispatch => ({
 DriverForm = reduxForm({
   form: 'driver_form',
   enableReinitialize: true
-})(DriverForm);
+})(DriverForm)
 
 export default connect(null, mapDispatchToProps)(DriverForm)

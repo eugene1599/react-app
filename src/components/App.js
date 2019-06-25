@@ -1,5 +1,5 @@
-import React from 'react';
-import { Router } from 'react-router-dom';
+import React from 'react'
+import { Router } from 'react-router-dom'
 import Routes from '../routes'
 import ReduxToastr from 'react-redux-toastr'
 import history from '../utils/history'
@@ -16,7 +16,7 @@ import 'react-redux-toastr/lib/css/react-redux-toastr.min.css'
 
 
 
-function App(propr) {
+function App(prop) {
   return (
     <Router history={history}>
       <ModalWindow />
@@ -32,4 +32,4 @@ function App(propr) {
   )
 }
 
-export default App;
+export default App

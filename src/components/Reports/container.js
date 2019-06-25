@@ -6,7 +6,7 @@ import MainLayout from '../MainLayout'
 
 class ReportsContainer extends Component {
   componentDidMount() {
-    this.props.fetchAllItems({ race_id: this.props.match.params.race_id });
+    this.props.fetchAllItems({ race_id: this.props.match.params.race_id })
   }
 
   render () {
