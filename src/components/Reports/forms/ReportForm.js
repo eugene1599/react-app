@@ -38,7 +38,7 @@ class ReportForm extends Component {
             placeholder="0.00"
           />
         </div>
-        
+
         <button className="btn btn-primary" type="submit">Submit</button>
       </form>
     )
@@ -48,8 +48,8 @@ class ReportForm extends Component {
 const mapStateToProps = (state) => {
   let form = {};
   if(state.form['report_form']){
-    form = { 
-      initialValues: { 
+    form = {
+      initialValues: {
         ...state.form.report_form.values, race_id: state.modal.resource.race_id
       }
     }
@@ -63,10 +63,11 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => ({
   onSubmit: values => {
+    debugger;
     if(values.id) {
-      dispatch(actions.updateItem(values.race_id, values))
+      dispatch(actions.updateItem(values))
     } else {
-      dispatch(actions.createItem(values.race_id, values))
+      dispatch(actions.createItem(values))
     }
   }
 })

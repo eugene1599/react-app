@@ -4,18 +4,18 @@ import { API_HOST } from '../constants/environment'
 
 class CrudActions {
   constructor(constants){
-    {
-      this.RESOURCE_PATH = constants.RESOURCE_PATH
-      this.fetchAllItemsSuccess = constants.fetchAllItemsSuccess
-      this.createItemSuccess = constants.createItemSuccess
-      this.updateItemSuccess = constants.updateItemSuccess
-      this.deleteItemSuccess = constants.deleteItemSuccess
-    }
+    this.RESOURCE_PATH = constants.RESOURCE_PATH
+    this.fetchAllItemsSuccess = constants.fetchAllItemsSuccess
+    this.createItemSuccess = constants.createItemSuccess
+    this.updateItemSuccess = constants.updateItemSuccess
+    this.deleteItemSuccess = constants.deleteItemSuccess
   }
 
-  fetchAllItems = () => {
+  fetchAllItems = (data) => {
+    let resource = this._parseUrl(this.RESOURCE_PATH, data)
+
     return dispatch => {
-      axios.get(`${API_HOST}/api/v1${this.RESOURCE_PATH}.json`)
+      axios.get(`${API_HOST}/api/v1${resource}.json`)
         .then(res => {
           dispatch(this.fetchAllItemsSuccess(res.data))
         });
@@ -23,8 +23,10 @@ class CrudActions {
   }
 
   createItem = (data) => {
+    let resource = this._parseUrl(this.RESOURCE_PATH, data)
+
     return dispatch => {
-      axios.post(`${API_HOST}/api/v1${this.RESOURCE_PATH}`, data)
+      axios.post(`${API_HOST}/api/v1${resource}`, data)
         .then(res => {
           dispatch(this.createItemSuccess(res.data))
           modal.closeModal();
@@ -45,8 +47,10 @@ class CrudActions {
   }
 
   updateItem = (data) => {
+    let resource = this._parseUrl(this.RESOURCE_PATH, data)
+
     return dispatch => {
-      axios.patch(`${API_HOST}/api/v1${this.RESOURCE_PATH}/${data.id}`, data)
+      axios.patch(`${API_HOST}/api/v1${resource}`, data)
         .then(res => {
           dispatch(this.updateItemSuccess(res.data))
           modal.closeModal();
@@ -66,11 +70,13 @@ class CrudActions {
     }
   }
 
-  deleteItem = (id) => {
+  deleteItem = (data) => {
+    let resource = this._parseUrl(this.RESOURCE_PATH, data)
+
     return dispatch => {
-      axios.delete(`${API_HOST}/api/v1${this.RESOURCE_PATH}/${id}`)
+      axios.delete(`${API_HOST}/api/v1${resource}`)
         .then(() => {
-          dispatch(this.deleteItemSuccess(id))
+          dispatch(this.deleteItemSuccess(data.id))
           modal.closeModal();
           toastr.warning('Deleted')
         }).catch(error => {
@@ -79,7 +85,16 @@ class CrudActions {
     }
   }
 
+  _parseUrl = (url, params) => {
+    let resultUrl = url;
+    Object.keys(params || {}).forEach(function(param){
+      resultUrl = resultUrl.replace(`{{${param}}}`, params[param])
+    })
+    resultUrl = resultUrl.replace(new RegExp('/{{\\w*}}','g'), '')
+    resultUrl = resultUrl.replace(new RegExp('{{\\w*}}','g'), '')
 
+    return resultUrl
+  }
 }
 console.log(`Your host ${API_HOST}`);
 export default CrudActions;

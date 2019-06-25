@@ -10,7 +10,7 @@ class Cars extends Component {
         <td>{(new Date(item.created_at)).toLocaleString()}</td>
         <td>
           <button onClick={() => modal.showModal({modalTitle: 'Edit item', resource: { name: 'cars', id: item.id }})}>edit</button>
-          <button onClick={() => this.props.deleteItem(item.id)}>delete</button>
+          <button onClick={() => this.props.deleteItem({id: item.id})}>delete</button>
         </td>
       </tr>
     )

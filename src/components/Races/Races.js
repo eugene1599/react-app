@@ -17,7 +17,7 @@ class Races extends Component {
         <td>
           <Link to={"/races/" + item.id + "/reports"} className="btn btn-light btn-sm">reports</Link>
           <button onClick={() => modal.showModal({modalTitle: 'Edit', resource: { name: 'races', id: item.id }})}>edit</button>
-          <button onClick={() => this.props.deleteItem(item.id)}>delete</button>
+          <button onClick={() => this.props.deleteItem({id: item.id})}>delete</button>
         </td>
       </tr>
     )

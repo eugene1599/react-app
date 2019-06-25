@@ -26,7 +26,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchAllItems: (race_id) => dispatch(actions.fetchAllItems(race_id))
+    fetchAllItems: (race_id) => dispatch(actions.fetchAllItems({race_id: race_id}))
   };
 };
 

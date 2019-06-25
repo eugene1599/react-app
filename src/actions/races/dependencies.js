@@ -1,6 +1,6 @@
 import * as types from '../../constants/race'
 
-export const RESOURCE_PATH = '/races'
+export const RESOURCE_PATH = '/races/{{id}}'
 
 export const fetchAllItemsSuccess = data => {
   return {

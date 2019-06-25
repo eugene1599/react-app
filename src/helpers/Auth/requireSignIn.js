@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 
-const LOGIN_PATH =  '/login';
+const LOGIN_PATH =  '/login'
 
 const requireSignIn = Component =>
   compose(
