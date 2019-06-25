@@ -4,6 +4,7 @@ import Races from './Races'
 import * as actions from '../../actions/races'
 import MainLayout from '../MainLayout'
 import * as actionsCustomers from '../../actions/customers'
+import selector from '../../store/races/selector'
 
 class RacesContainer extends Component {
   componentDidMount() {
@@ -22,8 +23,7 @@ class RacesContainer extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    races: state.races.items,
-    customers: state.customers.items
+    races: selector.getCustomerNamesForRaces(state)
   }
 }
 const mapDispatchToProps = {

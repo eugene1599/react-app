@@ -1,9 +1,16 @@
-const getCustomerFullNameById = (customers, id) => {
-  const customer = customers.find(item => item.id === id)
-  if(!customer) return ''
-  return `${customer.first_name} ${customer.last_name}`
+const getCustomerNamesForRaces = (state) => {
+  let { races, customers } = state
+  let mappedRaces = races.items.map((race) => {
+
+    let customer = customers.items.find(customer => customer.id === race.id)
+    let customer_fullname = ''
+    if(customer) customer_fullname = `${customer.first_name} ${customer.last_name}`
+    return {...race, customer_fullname }
+  })
+
+  return mappedRaces
 }
 
 export default {
-  getCustomerFullNameById
+  getCustomerNamesForRaces
 }
