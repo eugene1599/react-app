@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Reports from './Reports'
-import * as actions from '../../actions/reports'
+import { fetchAllItems } from '../../actions/reports'
 import MainLayout from '../MainLayout'
 
 class ReportsContainer extends Component {
   componentDidMount() {
-    this.props.fetchAllItems(this.props.match.params.race_id);
+    this.props.fetchAllItems({ race_id: this.props.match.params.race_id });
   }
 
   render () {
@@ -24,10 +24,7 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    fetchAllItems: (race_id) => dispatch(actions.fetchAllItems({race_id: race_id}))
-  };
-};
-
+const mapDispatchToProps = {
+  fetchAllItems
+}
 export default connect(mapStateToProps, mapDispatchToProps)(ReportsContainer)

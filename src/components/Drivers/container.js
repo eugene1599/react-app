@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Drivers from './Drivers'
-import * as actions from '../../actions/drivers'
+import { fetchAllItems, deleteItem } from '../../actions/drivers'
 import MainLayout from '../MainLayout'
 
 class DriversContainer extends Component {
@@ -24,11 +24,9 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    fetchAllItems: () => dispatch(actions.fetchAllItems()),
-    deleteItem: (id) => dispatch(actions.deleteItem(id))
-  };
-};
+const mapDispatchToProps = {
+    fetchAllItems,
+    deleteItem
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(DriversContainer)

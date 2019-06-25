@@ -63,7 +63,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => ({
   onSubmit: values => {
-    debugger;
     if(values.id) {
       dispatch(actions.updateItem(values))
     } else {
