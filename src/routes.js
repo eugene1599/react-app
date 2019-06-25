@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 
-import { requireSignIn } from './helpers/Auth'
+import { requireSignIn, requireLogOut } from './helpers/Auth'
 import SignInPage from './components/Auth/SignInPage'
 import SignUpPage from './components/Auth/SignUpPage'
 import NoMatch from './components/Shared/NoMatch'
@@ -24,8 +24,8 @@ function Routes() {
         <Route path="/races" exact component={requireSignIn(Races)} />
         <Route path="/races/:race_id/reports" component={requireSignIn(Reports)} />
 
-        <Route path="/login" component={SignInPage} />
-        <Route path="/register" component={SignUpPage} />
+        <Route path="/login" component={requireLogOut(SignInPage)} />
+        <Route path="/register" component={requireLogOut(SignUpPage)} />
         <Route component={NoMatch} />
       </Switch>
     </React.Fragment>
