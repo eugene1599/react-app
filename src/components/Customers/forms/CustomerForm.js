@@ -45,19 +45,16 @@ class CustomerForm extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  onSubmit: values => {
+CustomerForm = reduxForm({
+  form: 'customer_form',
+  enableReinitialize: true,
+  onSubmit: (values, dispatch) => {
     if(values.id) {
       dispatch(actions.updateItem(values))
     } else {
       dispatch(actions.createItem(values))
     }
   }
-})
-
-CustomerForm = reduxForm({
-  form: 'customer_form',
-  enableReinitialize: true
 })(CustomerForm)
 
-export default connect(null, mapDispatchToProps)(CustomerForm)
+export default connect()(CustomerForm)

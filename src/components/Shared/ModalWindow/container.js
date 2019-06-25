@@ -19,11 +19,9 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    showModal: () => dispatch(actions.showModal()),
-    closeModal: () => dispatch(actions.closeModal())
-  }
+const mapDispatchToProps = {
+  showModal: actions.showModal,
+  closeModal: actions.closeModal
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ModalWindowContainer)

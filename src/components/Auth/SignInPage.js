@@ -11,14 +11,14 @@ class SignInPage extends Component {
   submitForm ({ email, password}) {
     const { signInUser } = this.props
     signInUser({ email, password })
-      .then( () => {
+      .then(() => {
         this.props.history.push('/')
         // refreshAxiosHeaders();
         window.location.reload() // i don't know how to fix this
         //when user logged in it stays unlogged (i think we need to update axios config dynamycally?)
         // toastr.success('Hello user!')
       })
-      .catch( () => { toastr.error('Error', 'Invalid email or password') })
+      .catch(() => { toastr.error('Error', 'Invalid email or password') })
   }
 
   render () {

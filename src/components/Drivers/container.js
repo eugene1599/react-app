@@ -25,8 +25,8 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = {
-    fetchAllItems,
-    deleteItem
+  fetchAllItems,
+  deleteItem
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(DriversContainer)

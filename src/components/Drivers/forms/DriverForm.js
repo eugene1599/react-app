@@ -44,19 +44,16 @@ class DriverForm extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  onSubmit: values => {
+DriverForm = reduxForm({
+  form: 'driver_form',
+  enableReinitialize: true,
+  onSubmit: (values, dispatch) => {
     if(values.id) {
       dispatch(actions.updateItem(values))
     } else {
       dispatch(actions.createItem(values))
     }
   }
-})
-
-DriverForm = reduxForm({
-  form: 'driver_form',
-  enableReinitialize: true
 })(DriverForm)
 
-export default connect(null, mapDispatchToProps)(DriverForm)
+export default connect()(DriverForm)

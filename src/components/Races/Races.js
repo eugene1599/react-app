@@ -1,15 +1,16 @@
 import React, { Component } from 'react'
 import { modal } from '../../helpers'
 import { Link } from 'react-router-dom'
+import selector from '../../store/races/selector'
 
 class Races extends Component {
   showList() {
-    const { getCustomerFullNameById, customers } = this.props
+    const { customers } = this.props
 
     return this.props.races.map(item =>
       <tr key={item.id}>
         <td>{item.id}</td>
-        <td>{getCustomerFullNameById(customers, item.customer_id)}</td>
+        <td>{selector.getCustomerFullNameById(customers, item.customer_id)}</td>
         <td>{item.cargo_weight}</td>
         <td>{(new Date(item.start_date)).toLocaleString()}</td>
         <td>{(new Date(item.end_date)).toLocaleString()}</td>

@@ -104,18 +104,11 @@ class RaceForm extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  onSubmit: values => {
-    if(values.id) {
-      dispatch(actions.updateItem(values))
-    } else {
-      dispatch(actions.createItem(values))
-    }
-  },
-  fetchAllCars: () => dispatch(actionsCars.fetchAllItems()),
-  fetchAllCustomers: () => dispatch(actionsCustomers.fetchAllItems()),
-  fetchAllDrivers: () => dispatch(actionsDrivers.fetchAllItems()),
-})
+const mapDispatchToProps = {
+  fetchAllCars: actionsCars.fetchAllItems,
+  fetchAllCustomers: actionsCustomers.fetchAllItems,
+  fetchAllDrivers: actionsDrivers.fetchAllItems
+}
 
 const mapStateToProps = (state) => {
   return {
@@ -127,7 +120,14 @@ const mapStateToProps = (state) => {
 
 RaceForm = reduxForm({
   form: 'race_form',
-  enableReinitialize: true
+  enableReinitialize: true,
+  onSubmit: (values, dispatch) => {
+    if(values.id) {
+      dispatch(actions.updateItem(values))
+    } else {
+      dispatch(actions.createItem(values))
+    }
+  }
 })(RaceForm)
 
 export default connect(mapStateToProps, mapDispatchToProps)(RaceForm)

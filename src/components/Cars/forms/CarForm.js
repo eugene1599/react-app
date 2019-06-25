@@ -35,19 +35,16 @@ class CarForm extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  onSubmit: values => {
+CarForm = reduxForm({
+  form: 'car_form',
+  enableReinitialize: true,
+  onSubmit: (values, dispatch) => {
     if(values.id) {
       dispatch(actions.updateItem(values))
     } else {
       dispatch(actions.createItem(values))
     }
   }
-})
-
-CarForm = reduxForm({
-  form: 'car_form',
-  enableReinitialize: true
 })(CarForm)
 
-export default connect(null, mapDispatchToProps)(CarForm)
+export default connect()(CarForm)

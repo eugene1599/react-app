@@ -61,19 +61,16 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  onSubmit: values => {
+ReportForm = reduxForm({
+  form: 'report_form',
+  enableReinitialize: true,
+  onSubmit: (values, dispatch) => {
     if(values.id) {
       dispatch(actions.updateItem(values))
     } else {
       dispatch(actions.createItem(values))
     }
   }
-})
-
-ReportForm = reduxForm({
-  form: 'report_form',
-  enableReinitialize: true,
 })(ReportForm)
 
-export default connect(mapStateToProps, mapDispatchToProps)(ReportForm)
+export default connect(mapStateToProps)(ReportForm)
